@@ -1,10 +1,8 @@
-package com.dylan.swoosh
+package Controller
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.dylan.swoosh.databinding.ActivityLeagueBinding
 import com.dylan.swoosh.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

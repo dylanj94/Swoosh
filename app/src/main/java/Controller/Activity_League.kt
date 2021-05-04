@@ -1,13 +1,11 @@
-package com.dylan.swoosh
-
+package Controller
+import Controller.Utilities.EXTRA_LEAGUE
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dylan.swoosh.databinding.ActivityLeagueBinding
-import com.dylan.swoosh.databinding.ActivityMainBinding
 
 
 class Activity_League : AppCompatActivity() {
