@@ -1,5 +1,6 @@
 package Controller
-import Controller.Utilities.EXTRA_LEAGUE
+import Controller.Utilities.EXTRA_PLAYER
+import Model.Player
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -11,7 +12,7 @@ import com.dylan.swoosh.databinding.ActivityLeagueBinding
 class Activity_League : AppCompatActivity() {
 
     private lateinit var binding: ActivityLeagueBinding
-    var selectedLeague =""
+    var player = Player("", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,7 @@ class Activity_League : AppCompatActivity() {
 
         binding.womensLeagueBtn.isChecked = false
         binding.CoedLeagueBtn.isChecked = false
-        selectedLeague = "mens"
+        player.league = "mens"
 
         }
 
@@ -32,7 +33,7 @@ class Activity_League : AppCompatActivity() {
 
         binding.mensLeagueBtn.isChecked = false
         binding.CoedLeagueBtn.isChecked = false
-        selectedLeague = "womens"
+        player.league = "womens"
 
 
     }
@@ -41,16 +42,16 @@ class Activity_League : AppCompatActivity() {
 
         binding.mensLeagueBtn.isChecked = false
         binding.womensLeagueBtn.isChecked = false
-        selectedLeague = "co-ed"
+        player.league = "co-ed"
 
 
     }
 
 
     fun leagueNextClicked(view: View) {
-        if (selectedLeague != "") {
+        if (player.league != "") {
             val skillActivity = Intent(this, SkillActivity::class.java)
-            skillActivity.putExtra(EXTRA_LEAGUE, selectedLeague)
+            skillActivity.putExtra(EXTRA_PLAYER, player)
             startActivity(skillActivity)
         } else {
             Toast.makeText(this, "Please select a league.", Toast.LENGTH_SHORT ).show()

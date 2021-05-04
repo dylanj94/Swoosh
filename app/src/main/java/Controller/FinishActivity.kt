@@ -1,7 +1,7 @@
 package Controller
 
-import Controller.Utilities.EXTRA_LEAGUE
-import Controller.Utilities.EXTRA_SKILL
+import Controller.Utilities.EXTRA_PLAYER
+import Model.Player
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dylan.swoosh.databinding.ActivityFinishBinding
@@ -17,10 +17,14 @@ class FinishActivity : AppCompatActivity() {
         binding = ActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)
 
-        binding.searchLeaguesText.text = "Looking for $league $skill league near you..."
+        if (player != null) {
+            binding.searchLeaguesText.text = "Looking for ${player.league} ${player.skill} " +
+                    "league near you..."
+        }
+
+
 
 
     }
