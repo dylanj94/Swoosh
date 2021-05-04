@@ -1,16 +1,22 @@
 package com.dylan.swoosh
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import com.dylan.swoosh.databinding.ActivityLeagueBinding
+import com.dylan.swoosh.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val button = findViewById<Button>(R.id.getStarted)
-        button.setOnClickListener {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.getStarted.setOnClickListener {
             val leagueIntent = Intent(this, Activity_League::class.java)
             startActivity(leagueIntent)
         }
